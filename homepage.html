@@ -6,24 +6,141 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     
+    <link rel="stylesheet" type="text/css" href="./dist/components/reset.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/site.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/container.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/grid.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/header.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/image.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/menu.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/divider.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/segment.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/form.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/input.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/button.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/list.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/message.css">
+    <link rel="stylesheet" type="text/css" href="./dist/components/icon.css">
+
+
+  <script type="text/javascript" src="../../dist/components/popup.js"></script>
+  <!--- Component JS -->
+  
+  
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./dist/components/form.js"></script>
+    <script src="./dist/components/transition.js"></script>
+    <script type="text/javascript" src="../../dist/components/dropdown.js"></script>
+
+  <style>
+  body {
+    padding: 1em;
+  }
+  .ui.menu {
+    margin: 3em 0em;
+  }
+  .ui.menu:last-child {
+    margin-bottom: 110px;
+  }
+  </style>  
+
+  <script>
+  $(document).ready(function() {
+    $('.ui.menu .ui.dropdown').dropdown({
+        on: 'hover'
+    });
+    $("#myModal").modal('show')
+    $("#myModal").modal('hide')
+    var dialog = document.getElementById('myModal');
+
+    $(".right.menu").on('click', function() {
+      $("#myModal").modal('show')
+    });
+  });
+  </script>
   </head>
 
   <body>
-    <div class="nav navbar-fixed-top navbar-inverse">
-      <div class="nav">
-        <div class="container">
-          <ul class="pull-left">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Browse</a></li>
-          </ul>
-          <ul class="pull-right">
-            <li><a href="#">Sign Up</a></li>
-            <li><a href="#">Log In</a></li>
-            <li><a href="#">Help</a></li>
-          </ul>
-        </div>
-      </div>
+    <div class="ui inverted navbar-fixed-top menu">     
+    <div class="left menu">
+      <a class="item">Home</a>
+      <a class="item">Browse</a>
+      <a class="item" href="#openModal">Open Modal</a>
     </div>
+          
+      <div class="right menu" id = "rmenu">
+        <a class="item">Sign Up</a>
+        <a class="item" id = "login">Log In</a>  
+      </div>        
+    </div>
+    
+    <div class="ui modal" id = "myModal">
+  <i class="close icon"></i>
+  <div class="header">
+    Profile Picture
+  </div>
+  <div class="content">
+    <div class="ui medium image">
+      <img src="/images/avatar/large/chris.jpg">
+    </div>
+    <div class="description">
+      <div class="ui header">We've auto-chosen a profile image for you.</div>
+      <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
+      <p>Is it okay to use this photo?</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nope
+    </div>
+    <div class="ui positive right labeled icon button">
+      Yep, that's me
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+
+    <div id="openModal" class="modalDialog">
+            <div>
+              <a href="#close" title="Close" class="close">X</a>
+              
+                <div class="ui middle aligned center aligned grid">
+                  <div class="column">
+                    <h2 class="ui teal image header">
+                      <div class="content">
+                        Log-in to your account
+                      </div>
+                    </h2>
+                    <form class="ui large form">
+                      <div class="ui stacked segment">
+                        <div class="field">
+                          <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
+                          </div>
+                        </div>
+                        <div class="field">
+                          <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                          </div>
+                        </div>
+                        <div class="ui fluid large teal submit button">Login</div>
+                      </div>
+
+                      <div class="ui error message"></div>
+
+                    </form>
+
+                    <div class="ui message">
+                      New to us? <a href="#">Sign Up</a>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
 
     <div class="jumbotron">
       <div class="container">
